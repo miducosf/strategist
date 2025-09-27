@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michael Coleman - Learning strategist driving enterprise excellence</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f7f8fc;
+            color: #1a1a1a;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+
+        /* Header */
+        header {
+            background: rgba(247, 248, 252, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(55, 65, 81, 0.08);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+        }
+
+        .logo {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1e293b;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 3rem;
+        }
+
+        .nav-links a {
+            color: #475569;
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #1e293b;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #3b82f6;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 10rem 0 6rem;
+            background: linear-gradient(135deg, #f7f8fc 0%, #e2e8f0 50%, #cbd5e1 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 40%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.06) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(59, 130, 246, 0.12);
+            border: 1px solid rgba(59, 130, 246, 0.25);
+            border-radius: 50px;
+            color: #1d4ed8;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            letter-spacing: 0.02em;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.04em;
+            line-height: 1.1;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: #475569;
+            margin-bottom: 2.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        .hero-description {
+            font-size: 1.125rem;
+            color: #64748b;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .btn {
+            padding: 0.875rem 1.75rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #3b82f6, #1e40af);
+            color: white;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #475569;
+            border: 2px solid #e2e8f0;
+        }
+
+        .btn-secondary:hover {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 12px 40px rgba(71, 85, 105, 0.15);
+            transition: all 0.4s ease;
+        }
+
+        .hero-image img:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(71, 85, 105, 0.25);
+        }
+
+        .hero-metrics {
+            grid-column: 1 / -1;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .metric {
+            text-align: left;
+            padding: 2rem 0;
+            border-top: 1px solid rgba(55, 65, 81, 0.12);
+        }
+
+        .metric-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .metric-label {
+            color: #64748b;
+            font-size: 0.95rem;
+            font-weight: 400;
+        }
+
+        /* Expertise Section */
+        .expertise {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #94a3b8 0%, #64748b 100%);
+            color: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.02em;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+        }
+
+        .section-description {
+            font-size: 1.125rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .expertise-item {
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .expertise-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .expertise-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #60a5fa, #3b82f6);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+        }
+
+        .expertise-item h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+        }
+
+        .expertise-list {
+            list-style: none;
+        }
+
+        .expertise-list li {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 0.9rem;
+        }
+
+        .expertise-list li:before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #60a5fa;
+            font-weight: 500;
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 5rem 0;
+            background: #f1f5f9;
+        }
+
+        .projects .section-badge {
+            background: rgba(71, 85, 105, 0.08);
+            color: #475569;
+        }
+
+        .projects .section-title {
+            color: #0f172a;
+        }
+
+        .projects .section-description {
+            color: #475569;
+        }
+
+        .projects-grid {
+            display: grid;
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .project {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            padding: 2.5rem 0;
+            border-bottom: 1px solid rgba(71, 85, 105, 0.12);
+        }
+
+        .project:last-child {
+            border-bottom: none;
+        }
+
+        .project:nth-child(even) {
+            direction: rtl;
+        }
+
+        .project:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .project-info {
+            padding-right: 1rem;
+        }
+
+        .project:nth-child(even) .project-info {
+            padding-right: 0;
+            padding-left: 1rem;
+        }
+
+        .project-category {
+            color: #3b82f6;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+        }
+
+        .project-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        .project-description {
+            font-size: 1rem;
+            color: #475569;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .project-outcomes {
+            background: #ffffff;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(71, 85, 105, 0.08);
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 10px rgba(71, 85, 105, 0.04);
+        }
+
+        .project-outcomes h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.01em;
+        }
+
+        .outcomes-list {
+            list-style: none;
+        }
+
+        .outcomes-list li {
+            color: #475569;
+            margin-bottom: 0.4rem;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 0.85rem;
+        }
+
+        .outcomes-list li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: 600;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .tag {
+            padding: 0.5rem 1rem;
+            background: rgba(71, 85, 105, 0.08);
+            border: 1px solid rgba(71, 85, 105, 0.12);
+            border-radius: 50px;
+            color: #475569;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .tag.ai {
+            background: rgba(59, 130, 246, 0.12);
+            border-color: rgba(59, 130, 246, 0.25);
+            color: #1e40af;
+        }
+
+        .project-visual {
+            height: 280px;
+            background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 50%, #e2e8f0 100%);
+            border-radius: 16px;
+            border: 1px solid rgba(71, 85, 105, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            font-size: 0.9rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(71, 85, 105, 0.08);
+        }
+
+        .project-visual::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 8rem 0;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            color: #fff;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .contact .section-title {
+            color: #fff;
+            margin-bottom: 2rem;
+        }
+
+        .contact-description {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-item {
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-item h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .contact-item a {
+            color: #3b82f6;
+            text-decoration: none;
+            font-size: 1.125rem;
+            font-weight: 500;
+        }
+
+        .contact-item a:hover {
+            color: #60a5fa;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0 2rem;
+            }
+            
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+            
+            .hero-image {
+                order: -1;
+            }
+            
+            .hero-image img {
+                height: 300px;
+            }
+            
+            .hero-metrics {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+            
+            .expertise-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .project {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .project:nth-child(even) {
+                direction: ltr;
+            }
+            
+            .project:nth-child(even) .project-info {
+                padding-left: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                padding: 6rem 0 4rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.25rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .project-title {
+                font-size: 1.75rem;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Smooth animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Michael Coleman</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#expertise">Expertise</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <div class="hero-badge">Available for new opportunities</div>
+                        <h1 class="fade-in">Learning Strategist</h1>
+                        <p class="subtitle fade-in">Driving Enterprise Excellence Through Strategic Learning Innovation</p>
+                        <p class="hero-description fade-in">I guide teams to identify learning challenges and develop solutions that achieve measurable business outcomes. With 20+ years of experience, I uncover performance gaps, generate insights, and craft engaging solutions that enhance learner experiences.</p>
+                        
+                        <div class="hero-buttons">
+                            <a href="https://www.linkedin.com/in/mikecolemansf/" target="_blank" class="btn btn-primary">View LinkedIn Profile</a>
+                            <a href="https://www.linkedin.com/in/mikecolemansf/" class="btn btn-secondary">View Resume</a>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-image">
+                        <img src="assets/headshot.jpg" alt="Michael Coleman - Learning Strategy Professional" />
+                    </div>
+
+                    <div class="hero-metrics">
+                        <div class="metric fade-in">
+                            <div class="metric-number">20+</div>
+                            <div class="metric-label">Years of expertise creating learning solutions</div>
+                        </div>
+                        <div class="metric fade-in">
+                            <div class="metric-number">10,000+</div>
+                            <div class="metric-label">Professionals trained across enterprise organizations</div>
+                        </div>
+                        <div class="metric fade-in">
+                            <div class="metric-number">95%</div>
+                            <div class="metric-label">Compliance completion achieved within deadlines</div>
+                        </div>
+                        <div class="metric fade-in">
+                            <div class="metric-number">67%</div>
+                            <div class="metric-label">Reduction in time-to-competence</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="expertise" class="expertise">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-badge">Core Capabilities</div>
+                    <h2 class="section-title">Comprehensive Learning Design Expertise</h2>
+                    <p class="section-description">From strategic curriculum development to innovative AI-enhanced solutions, I deliver meticulously crafted learning experiences that blend proven methodologies with emerging technologies.</p>
+                </div>
+                
+                <div class="expertise-grid">
+                    <div class="expertise-item">
+                        <div class="expertise-icon">📚</div>
+                        <h3>Strategic Instructional Design</h3>
+                        <ul class="expertise-list">
+                            <li>ADDIE & SAM methodologies</li>
+                            <li>Learning experience design (LxD)</li>
+                            <li>Curriculum development & assessment</li>
+                            <li>Performance consulting & needs analysis</li>
+                            <li>Data-driven evaluation & improvement</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="expertise-item">
+                        <div class="expertise-icon">🛠️</div>
+                        <h3>Technical Development</h3>
+                        <ul class="expertise-list">
+                            <li>Articulate Storyline & Rise 360</li>
+                            <li>Adobe Captivate & Creative Suite</li>
+                            <li>LMS platforms & SCORM integration</li>
+                            <li>HTML/CSS & responsive design</li>
+                            <li>Video production & interactive media</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="expertise-item">
+                        <div class="expertise-icon">⚖️</div>
+                        <h3>Specialized Knowledge</h3>
+                        <ul class="expertise-list">
+                            <li>Compliance & regulatory training</li>
+                            <li>Financial services expertise</li>
+                            <li>Blended & virtual learning design</li>
+                            <li>Cross-functional stakeholder management</li>
+                            <li>Global deployment strategies</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="expertise-item">
+                        <div class="expertise-icon">🤖</div>
+                        <h3>Innovation & Emerging Tech</h3>
+                        <ul class="expertise-list">
+                            <li>AI-enhanced content development</li>
+                            <li>Conversational AI & chatbots</li>
+                            <li>Learning analytics & performance metrics</li>
+                            <li>Rapid prototyping with AI tools</li>
+                            <li>Future-forward L&D strategies</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-badge">Featured Work</div>
+                    <h2 class="section-title">Projects That Drive Results</h2>
+                    <p class="section-description">Explore individual projects and initiatives I've led to see the power of strategic learning design and envision what we can accomplish together.</p>
+                </div>
+                
+                <div class="projects-grid">
+                    <div class="project">
+                        <div class="project-info">
+                            <div class="project-category">AI Innovation</div>
+                            <h3 class="project-title">ACE AI Learning Assistant</h3>
+                            <p class="project-description">Revolutionized compliance training with an AI-powered digital coach, delivering just-in-time support and reducing reliance on traditional courseware.</p>
+                            
+                            <div class="project-outcomes">
+                                <h4>Key Achievements</h4>
+                                <ul class="outcomes-list">
+                                    <li>Reduced support ticket volume by 60%</li>
+                                    <li>Improved user efficiency and engagement</li>
+                                    <li>Created scalable foundation for future AI tools</li>
+                                    <li>Enhanced accessibility to compliance guidance</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="project-tags">
+                                <span class="tag ai">AI Innovation</span>
+                                <span class="tag">Performance Support</span>
+                                <span class="tag">Just-in-Time Learning</span>
+                                <span class="tag">API Integration</span>
+                            </div>
+                        </div>
+                        <div class="project-visual">
+                            <span>ACE Conversational Interface</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project">
+                        <div class="project-info">
+                            <div class="project-category">Wealth Management</div>
+                            <h3 class="project-title">Scalable Advisor Training</h3>
+                            <p class="project-description">Designed comprehensive learning programs for 1,000+ professionals supporting $150B+ in assets, transforming time-to-competence across multiple business lines.</p>
+                            
+                            <div class="project-outcomes">
+                                <h4>Key Achievements</h4>
+                                <ul class="outcomes-list">
+                                    <li>Reduced time-to-competence from 3 weeks to 1 week</li>
+                                    <li>Improved service accuracy and client satisfaction</li>
+                                    <li>Streamlined onboarding across 200+ locations</li>
+                                    <li>Enhanced regulatory compliance tracking</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="project-tags">
+                                <span class="tag">Storyline</span>
+                                <span class="tag">Performance Support</span>
+                                <span class="tag">Financial Services</span>
+                                <span class="tag">Scalable Solutions</span>
+                            </div>
+                        </div>
+                        <div class="project-visual">
+                            <span>Wealth Management Learning Portal</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project">
+                        <div class="project-info">
+                            <div class="project-category">AI-Enhanced Video</div>
+                            <h3 class="project-title">SIMPLE Sales Training</h3>
+                            <p class="project-description">Reimagined sales upskilling with AI-generated video content and personalized learning pathways, setting new standards for engaging digital training.</p>
+                            
+                            <div class="project-outcomes">
+                                <h4>Key Achievements</h4>
+                                <ul class="outcomes-list">
+                                    <li>Reduced development time by 50%</li>
+                                    <li>Improved learner engagement with video content</li>
+                                    <li>Established scalable video production process</li>
+                                    <li>Enhanced mobile accessibility across devices</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="project-tags">
+                                <span class="tag ai">AI Video Production</span>
+                                <span class="tag">Sales Training</span>
+                                <span class="tag">Microlearning</span>
+                                <span class="tag">Mobile Learning</span>
+                            </div>
+                        </div>
+                        <div class="project-visual">
+                            <span>SIMPLE Interactive Video Interface</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title">Let's Create Something Exceptional</h2>
+                <p class="contact-description">Ready to transform your organization's learning initiatives with strategic design and innovative solutions? I'd love to discuss how we can work together.</p>
+                
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <h4>Email</h4>
+                        <a href="mailto:miduco@gmail.com">miduco@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <h4>Phone</h4>
+                        <a href="tel:+14155331840">+1.415.533.1840</a>
+                    </div>
+                    <div class="contact-item">
+                        <h4>LinkedIn</h4>
+                        <a href="https://www.linkedin.com/in/mikecolemansf/" target="_blank">Connect with me</a>
+                    </div>
+                    <div class="contact-item">
+                        <h4>Location</h4>
+                        <span style="color: rgba(255,255,255,0.8);">San Francisco, CA</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
